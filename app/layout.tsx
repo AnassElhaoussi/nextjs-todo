@@ -1,5 +1,7 @@
 import React from 'react'
 import Header from './Header'
+import '../styles/globals.css'
+import '../styles/index.css'
 
 export default function RootLayout({children}: {
     children: React.ReactNode
@@ -8,8 +10,8 @@ export default function RootLayout({children}: {
         <html>
             <head></head>
             <body>
-                {children}
                 <Header />
+                {children}
             </body>
         </html>
     )
