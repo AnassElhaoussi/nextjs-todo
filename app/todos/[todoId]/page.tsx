@@ -1,6 +1,7 @@
 import { type } from "os";
 import React from "react";
 import { ITodo } from "@/typings";
+import NotFound from "./not-found";
 
 type pageProps = {
     params: {
@@ -16,12 +17,14 @@ const fetchTodo = async (todoId: number) => {
 
 const Todo = async ({params: { todoId }}: pageProps) => {
     const todo = await fetchTodo(todoId)
-    return (
+    if(!todo.id) return <NotFound />
+    else return (
         <div className="flex flex-col gap-3 p-2 bg-gray-100 rounded-md">
             <span>Todo {todoId} : {todo.title}</span>
             <span>{todo.completed ? 'Completed' : 'Not completed'}</span>
         </div>
     )
+
 }
 
 export async function generateStaticParams() {

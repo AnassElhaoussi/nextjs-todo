@@ -5,6 +5,7 @@ const Todos = () => {
     return (
         <div>
             <span>Todos : </span>
+            {/* @ts-ignore */}
             <TodoList />
         </div>
     )
