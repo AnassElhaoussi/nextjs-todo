@@ -1,5 +1,6 @@
 import React from "react";
 import { ITodo } from "@/typings";
+import Link from "next/link";
 
 const fetchTodos = async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/todos/')
@@ -12,7 +13,9 @@ export const TodoList = async () => {
     return (
         <div className="flex flex-col gap-3">
             {todos.map((todo, id) => (
-                <span key={id}>Todo {todo.id}</span>
+                <Link key={id} href={`/todos/${todo.id}`} >
+                    <span>Todo {todo.id}</span>
+                </Link>
             ))}
         </div>
     )
