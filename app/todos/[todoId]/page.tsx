@@ -10,7 +10,7 @@ type pageProps = {
 }
 
 const fetchTodo = async (todoId: number) => {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${todoId}`)
+    const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${todoId}`, {cache: 'force-cache'})
     const todo = await res.json()
     return todo
 }
